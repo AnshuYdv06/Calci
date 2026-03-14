@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fce38a, #f38181);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 300px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            color: #ff4b4b;
+            margin-top: 0;
+        }
+        .heart-beat {
+            display: inline-block;
+            animation: beat 1s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            box-sizing: border-box;
+            outline: none;
+            transition: 0.3s;
+            text-align: center;
+        }
+        input:focus {
+            border-color: #ff4b4b;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4b4b;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        button:hover {
+            background-color: #d43737;
+            transform: scale(1.05);
+        }
+        #result {
+            margin-top: 25px;
+            font-weight: bold;
+            color: #333;
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="heart-beat">❤</span> Love Calculator</h1>
+        <input type="text" id="name1" placeholder="Your Name">
+        <input type="text" id="name2" placeholder="Partner Name">
+
+        <button onclick="calculateLove()">Calculate Love</button>
+
+        <div id="result"></div>
+    </div>
+    <script>
+        function calculateLove() {
+            var name1 = document.getElementById("name1").value;
+            var name2 = document.getElementById("name2").value;
+             
+            if(name1=="" || name2==""){
+                alert("please enter both the names");
+                return;
+            }
+            var lovePercentage = Math.floor(Math.random() * 100);
+        
+            document.getElementById("result").innerHTML =
+            name1 + "  💕 " + name2 + " have a love percentage of " + lovePercentage + "%";
+        }
+    </script>
+
+
+    
+</body>
+</html>
